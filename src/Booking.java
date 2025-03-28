@@ -20,6 +20,32 @@ public class Booking {
     }
 
 
+    // Getters for booking properties
+    public String getBookingReference() {
+        return bookingReference;
+    }
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public String getPassengerName() {
+        return passengerName;
+    }
+
+    public String getPassengerEmail () {
+        return passengerEmail;
+    }
+
+    public int getNumberOfSeats () {
+        return numberOfSeats;
+    }
+
+    public double getTotalPrice () {
+        return totalPrice;
+    }
+
+
 
 
 }
