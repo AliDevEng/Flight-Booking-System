@@ -28,4 +28,51 @@ public class Flight {
     public String getFlightNumber() {
         return flightNumber;
     }
+
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public String getDepartureDate() {
+        return departureDate;
+    }
+
+    public String getDepartureTime() {
+        return departureTime;
+    }
+
+    public int getTotalSeats() {
+        return totalSeats;
+    }
+
+    public int getAvailableSeats() {
+        return availableSeats;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+
+    // Book some seats on the flight
+    // Return true if the booking succeed
+
+    public boolean bookSeats(int seats) {
+        if (seats <= availableSeats) {
+            availableSeats -= seats;
+            // availableSeats = availableSeats - seats;
+            // Update available seat count by removing the allocated seats
+
+            return true;
+        }
+            return false;
+    }
+
+
+
 }
