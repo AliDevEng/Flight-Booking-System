@@ -102,8 +102,46 @@ public class Main {
                 }
 
 
+                // Book the seats on the flight
+                boolean booked = selectedFlight.bookSeats(seats);
 
+                if (booked) {
+                        // We need to create the Booking Reference
+                        String reference = generateBookingReference();
+
+                        // Create the booking
+                        Booking booking = new Booking(reference, selectedFlight, name, email, seats);
+                        bookings.put(reference, booking);
+
+                        System.out.println("\nThe booking succeeded! Your booking's details: ");
+                        System.out.println(booking);
+                        System.out.println("\nSave your booking reference: " + reference);
+
+                } else {
+                        System.out.println("The booking failed! Please try again.");
+                }
         }
+
+        // Generate Random Booking Reference
+        private static String generateBookingReference () {
+                // 3 Random letters + 4 Random numbers
+                String letters = "ABCDEFGHJKLMNOPQRSTUVXYZ";
+                StringBuilder reference = new StringBuilder();
+
+                // Put 3 random letters
+                for (int i = 0; i < 3; i++) {
+                        reference.append(letters.charAt(random.nextInt(letters.length())));
+                }
+
+                // Now put 4 random numbers
+                for (int i = 0; i < 4; i++) {
+                        reference.append(random.nextInt(10));
+                }
+
+
+                return reference.toString();
+        }
+
 
         // Initiate the system with sample-flights
         private static void initializeFlights () {
