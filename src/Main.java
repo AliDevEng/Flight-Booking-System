@@ -26,11 +26,84 @@ public class Main {
                 System.out.println("Welcome to your Flight Booking App!");
 
                 while (running) {
+                        displayMenu();
+                        int choice = getIntInput ("Choose: ");
 
+                        switch (choice) {
+                                case 1:
+                                        displayAllFlights();
+                                        break;
+                                case 2:
+                                        makeBooking();
+                                        break;
+
+                        }
 
                 }
         }
 
+        // Show all available flights
+        private static void displayAllFlights() {
+                System.out.println("\n===== Available Flights =====");
+
+                if (flights.isEmpty()) {
+                        System.out.println("No Flights Available");
+                } else {
+                        for (int i = 0; i < flights.size(); i++) {
+                                System.out.println("\n[" + (i+1) + "] " + flights.get(i));
+                        }
+                }
+        }
+
+        // Manage flight booking
+        private static void makeBooking() {
+                System.out.println("\n===== Book Your Flight =====");
+
+                // Show all flights
+                displayAllFlights();
+
+                // Choose the flight
+                int flightIndex = getIntInput("\nChoose the flight (1-" + flights.size() + "): ") - 1;
+
+                if (flightIndex < 0 || flightIndex >= flights.size()) {
+                        System.out.println("Invalid Choice.");
+                        return;
+                }
+
+                Flight selectedFlight = flights.get(flightIndex);
+
+                if (!selectedFlight.hasAvailableSeats()) {
+                        System.out.println("Sorry, This flight is fully booked!");
+                        return;
+                }
+
+                // Collect passenger data
+                scanner.nextLine();             // Cleaning the buffer
+
+                System.out.println("Name: ");
+                String name = scanner.nextLine();
+
+                System.out.println("E-mail: ");
+                String email = scanner.nextLine();
+
+                // Number of seats
+                int seats = getIntInput("Number of seats you need to book: ");
+
+                if (seats <= 0) {
+                        System.out.println("Number of seats has to be positive.");
+                        return;
+                }
+
+                if (seats > selectedFlight.getAvailableSeats()) {
+                        System.out.println("Not enough seats on this flight. This flight has "
+                        + selectedFlight.getAvailableSeats() + " available seats.");
+
+                        return;
+                }
+
+
+
+        }
 
         // Initiate the system with sample-flights
         private static void initializeFlights () {
