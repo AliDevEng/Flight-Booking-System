@@ -74,5 +74,23 @@ public class Flight {
     }
 
 
+    // Cancel seats
+    public void cancelSeats (int seats) {
+        availableSeats += seats;
+        // availableSeats = availableSeats + seats;
+        // Update available seat count by adding the cancelled seats
+
+        if (availableSeats > totalSeats) {
+            availableSeats = totalSeats;        // We can't have more seats available than the total seats
+        }
+    }
+
+
+    // Controlling if any seats are available and give the result in Boolean
+    public boolean hasAvailableSeats () {
+        return availableSeats > 0;
+    }
+
+
 
 }
