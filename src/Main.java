@@ -218,4 +218,26 @@ public class Main {
 
 
         }
+
+        // Get number from the user
+        private static int getIntInput (String prompt) {
+                int input = 0;
+                boolean valid = false;
+
+                while (!valid) {
+                        System.out.println(prompt);
+                        try {
+                                input = scanner.nextInt();
+                                valid = true;
+
+                        } catch (Exception e) {
+                                System.out.println("Invalid. Type a Number (Integer)");
+                                scanner.nextLine();  // Clear the buffer
+                        }
+                }
+
+                return input;
+        }
+
+
 }
