@@ -181,4 +181,41 @@ public class Main {
 
 
         }
+
+        // Manage Cancellation
+        private static void cancelBooking () {
+                System.out.println("\n=====  Cancel Flight  =====");
+
+                System.out.println("Write your Booking Reference: ");
+                String reference = scanner.next().toUpperCase();
+
+                Booking booking = bookings.get(reference);
+
+                if (booking == null) {
+                        System.out.println("Booking does not exist. Please check the Booking Reference.");
+                        return;
+                }
+
+                System.out.println("\nYour Booking Details: ");
+                System.out.println(booking);
+
+                System.out.println(
+                        "Are you sure about Cancelling this Flight? (Y/N): ");
+                String confirmation = scanner.next().toLowerCase();
+
+                if (confirmation.equals("y")) {
+
+                        // Reset the seats on the flight
+                        booking.getFlight().cancelSeats(booking.getNumberOfSeats());
+
+                        // Remove booking
+                        bookings.remove(reference);
+
+                        System.out.println("The Booking are Cancelled Now.");
+                } else {
+                        System.out.println("The cancellation failed.");
+                }
+
+
+        }
 }
