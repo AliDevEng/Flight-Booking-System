@@ -37,11 +37,25 @@ public class Main {
                                 case 2:
                                         makeBooking();
                                         break;
-
+                                case 3:
+                                        viewBooking();
+                                        break;
+                                case 4:
+                                        cancelBooking();
+                                        break;
+                                case 0:
+                                        running = false;
+                                        System.out.println("Thank you for using this program!");
+                                        break;
+                                default:
+                                        System.out.println("Invalid choice. Please try again.");
                         }
 
                 }
+
+                scanner.close();
         }
+
 
         // Show all available flights
         private static void displayAllFlights() {
@@ -239,5 +253,14 @@ public class Main {
                 return input;
         }
 
-
+        // Showing the mainMenu
+        private static void displayMenu () {
+                System.out.println("\n=====  Flight Booking System  =====");
+                System.out.println("1. Show alla flights");
+                System.out.println("2. Book a flight");
+                System.out.println("3. Show Booking's Details");
+                System.out.println("4. Cancel the Booking");
+                System.out.println("0. Exit");
+                System.out.println("==============================");
+        }
 }
