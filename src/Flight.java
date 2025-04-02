@@ -92,5 +92,15 @@ public class Flight {
     }
 
 
+    // Use toString to create a String containing Flight-info
 
+
+    @Override
+    public String toString() {
+        return "Flight " + flightNumber + ": " + origin + " to " + destination +
+                "\nDate: " + departureDate + "Time: " + departureTime +
+                "\nAvailable Seats: " + availableSeats + "/" + totalSeats +
+                "\nPrice: " + price + " SEK"
+                ;
+    }
 }

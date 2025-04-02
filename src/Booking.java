@@ -57,7 +57,7 @@ public class Booking {
                 " to " + flight.getDestination() +
                 "\nDeparture: " + flight.getDepartureDate() + " " + flight.getDepartureTime() +
                 "\nNumber of setas: " + numberOfSeats +
-                "\nTotal Price: " + totalPrice + "SEK"
+                "\nTotal Price: " + totalPrice + " SEK"
                 ;
     }
 }
