@@ -46,6 +46,18 @@ public class Booking {
     }
 
 
-
-
+    // Return a String containing booking
+    @Override
+    public String toString() {
+        return "Booking Reference: " + bookingReference +
+                "\nPassenger: " + passengerName +
+                "\nEmail: " + passengerEmail +
+                "\nFlight: " + flight.getFlightNumber() +
+                " from " + flight.getOrigin() +
+                " to " + flight.getDestination() +
+                "\nDeparture: " + flight.getDepartureDate() + " " + flight.getDepartureTime() +
+                "\nNumber of setas: " + numberOfSeats +
+                "\nTotal Price: " + totalPrice + "SEK"
+                ;
+    }
 }
