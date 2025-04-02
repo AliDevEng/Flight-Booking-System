@@ -1,4 +1,5 @@
 
+import java.awt.print.Book;
 import java.util.ArrayList;
 // Imports the ArrayList class, which provides a resizable array implementation
 
@@ -160,4 +161,24 @@ public class Main {
                         (new Flight("KL1110", "Stockholm", "Amsterdam", "2025-02-15", "19:30", 180, 1299.00));
         }
 
+
+        // Show the details for a specifik flight
+        private static void viewBooking () {
+                System.out.println("\n=====  Show the Details of a Booking =====");
+
+                System.out.println("Write your Booking Reference: ");
+                String reference = scanner.next().toUpperCase();
+
+                Booking booking = bookings.get(reference);
+
+                if (booking == null) {
+                        System.out.println("Unable to find the Booking. Please check your Booking Reference.");
+
+                } else {
+                        System.out.println("\nYour Booking's Detail: ");
+                        System.out.println(booking);
+                }
+
+
+        }
 }
